@@ -14,9 +14,9 @@ class IsEvenGame {
         this.correctMessages = [
             "Então você sabe se todos os números são impar ou pares de cabeça?",
             "Uau! Você deve ter decorado a tabuada toda!",
-            "Nossa, você é tipo um gênio da matemática! Mais um aqui:",
-            "Impressionante! Eu ainda conto nos dedos... Vamos tentar outro:",
-            "Que incrível! Eu sempre confundo esses números... Mais um:",
+            "Nossa, você é tipo um gênio da matemática!",
+            "Impressionante! Eu ainda conto nos dedos...",
+            "Que incrível! Eu sempre confundo esses números...",
             "Poxa! Você é melhor que minha calculadora!"
         ];
         

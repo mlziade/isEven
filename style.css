@@ -5,32 +5,35 @@
 }
 
 body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    position: relative;
 }
 
 .container {
     text-align: center;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    max-width: 500px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 550px;
     width: 90%;
 }
 
 .title {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    animation: bounce 2s infinite;
+    font-size: 2.8rem;
+    color: #2c3e50;
+    margin-bottom: 35px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    letter-spacing: -1px;
 }
 
 @keyframes bounce {
@@ -46,15 +49,18 @@ body {
 }
 
 .number-display {
-    font-size: 6rem;
-    font-weight: bold;
-    color: #4a90e2;
-    margin: 30px 0;
-    padding: 20px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    font-size: 7rem;
+    font-weight: 700;
+    color: #667eea;
+    margin: 35px 0;
+    padding: 30px;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border-radius: 20px;
+    box-shadow: 
+        inset 0 5px 15px rgba(0, 0, 0, 0.1),
+        0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    border: 2px solid rgba(102, 126, 234, 0.1);
 }
 
 .number-display:hover {
@@ -69,34 +75,54 @@ body {
 }
 
 .btn {
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    font-weight: bold;
+    padding: 18px 35px;
+    font-size: 1.6rem;
+    font-weight: 600;
     border: none;
-    border-radius: 50px;
+    border-radius: 15px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     font-family: inherit;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+.btn:hover::before {
+    left: 100%;
 }
 
 .btn-even {
-    background: linear-gradient(45deg, #56ab2f, #a8e6cf);
+    background: linear-gradient(135deg, #10ac84, #1dd1a1);
     color: white;
 }
 
 .btn-odd {
-    background: linear-gradient(45deg, #ff8a80, #ffb74d);
+    background: linear-gradient(135deg, #ee5a52, #ff6b6b);
     color: white;
 }
 
 .btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
 }
 
 .btn:active {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .message {
@@ -146,4 +172,29 @@ body {
     0% { transform: scale(1); }
     50% { transform: scale(1.1); }
     100% { transform: scale(1); }
+}
+
+.github-credit {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.github-credit:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    color: #667eea;
 }
