@@ -9,6 +9,7 @@ class IsEvenGame {
         
         this.currentNumber = 0;
         this.fireworks = [];
+        this.animationRunning = false;
         
         this.correctMessages = [
             "Então você sabe se todos os números são impar ou pares de cabeça?",
@@ -20,6 +21,7 @@ class IsEvenGame {
         ];
         
         this.wrongMessages = [
+            "Você já ganhou algum par ou impar na sua vida?",
             "beleza 120 é impar ou par então???",
             "Eu fico confuso quando termina com 7, 8 ou 9",
             "Pois é... eu também erro quando o número é muito grande",
@@ -105,12 +107,22 @@ class IsEvenGame {
                 this.addFirework();
             }, i * 200);
         }
-        this.animateFireworks();
+        
+        // Always ensure animation is running
+        this.ensureAnimationRunning();
+    }
+    
+    ensureAnimationRunning() {
+        if (!this.animationRunning) {
+            this.animationRunning = true;
+            this.animateFireworks();
+        }
     }
     
     addFirework() {
         const x = Math.random() * this.fireworksCanvas.width;
         const y = Math.random() * this.fireworksCanvas.height * 0.7 + this.fireworksCanvas.height * 0.1;
+        
         
         const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#f0932b', '#eb4d4b', '#6c5ce7'];
         const color = colors[Math.floor(Math.random() * colors.length)];
@@ -129,6 +141,9 @@ class IsEvenGame {
         }
         
         this.fireworks.push(...particles);
+        
+        // Ensure animation keeps running when new fireworks are added
+        this.ensureAnimationRunning();
     }
     
     animateFireworks() {
@@ -158,6 +173,8 @@ class IsEvenGame {
         
         if (this.fireworks.length > 0) {
             requestAnimationFrame(() => this.animateFireworks());
+        } else {
+            this.animationRunning = false;
         }
     }
 }
