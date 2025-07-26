@@ -10,6 +10,28 @@ class IsEvenGame {
         this.currentNumber = 0;
         this.fireworks = [];
         
+        this.correctMessages = [
+            "Então você sabe se todos os números são impar ou pares de cabeça?",
+            "Uau! Você deve ter decorado a tabuada toda!",
+            "Nossa, você é tipo um gênio da matemática! Mais um aqui:",
+            "Impressionante! Eu ainda conto nos dedos... Vamos tentar outro:",
+            "Que incrível! Eu sempre confundo esses números... Mais um:",
+            "Poxa! Você é melhor que minha calculadora!"
+        ];
+        
+        this.wrongMessages = [
+            "beleza 120 é impar ou par então???",
+            "Eu fico confuso quando termina com 7, 8 ou 9",
+            "Pois é... eu também erro quando o número é muito grande",
+            "É difícil mesmo! Eu sempre esqueço se 2 é par ou ímpar",
+            "Eu tenho que contar nos dedos sempre",
+            "Esses números me confundem também! Principalmente os que terminam em 0",
+            "É mesmo! Eu nunca lembro se 1 é par... ou era ímpar?",
+            "Os números que começam com 4 são os mais difíceis",
+            "Também erro sempre! Principalmente quando tem 5 no meio",
+            "Primeiro que esse número nem existe! Como você quer que eu saiba?",
+        ];
+        
         this.init();
     }
     
@@ -53,7 +75,8 @@ class IsEvenGame {
     }
     
     showCorrectAnswer() {
-        this.message.textContent = "Então você sabe se todos os números são impar ou pares de cabeça? Vamos ver o próximo";
+        const randomMessage = this.correctMessages[Math.floor(Math.random() * this.correctMessages.length)];
+        this.message.textContent = randomMessage;
         this.message.classList.add('show');
         this.numberDisplay.classList.add('pulse');
         
@@ -66,7 +89,8 @@ class IsEvenGame {
     }
     
     showWrongAnswer() {
-        this.message.textContent = "Eu fico confuso quando termina com 7, 8 ou 9";
+        const randomMessage = this.wrongMessages[Math.floor(Math.random() * this.wrongMessages.length)];
+        this.message.textContent = randomMessage;
         this.message.classList.add('show');
         this.numberDisplay.classList.add('shake');
         
